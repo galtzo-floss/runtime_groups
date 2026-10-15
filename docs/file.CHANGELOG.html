@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/galtzo-floss/runtime_groups/compare/v0.1.2...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/galtzo-floss/runtime_groups/compare/v0.1.3...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -82,11 +82,24 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="fixed">Fixed</h3>
 
+<h3 id="security">Security</h3>
+
+<h2 id="013---2026-10-15">
+<a href="https://github.com/galtzo-floss/runtime_groups/compare/v0.1.2...v0.1.3">0.1.3</a> - 2026-10-15</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.3">v0.1.3</a>
+</li>
+  <li>COVERAGE: 99.22% – 127/128 lines in 6 files</li>
+  <li>BRANCH COVERAGE: 96.88% – 31/32 branches in 6 files</li>
+  <li>93.55% documented</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
 <ul>
   <li>Pids#to_a tolerates the ledger file vanishing between the existence guard and the read (TOCTOU with concurrent PidFile teardown during worker untracking, seen on truffleruby as Errno::ENOENT mid-suite); returns an empty ledger instead</li>
 </ul>
-
-<h3 id="security">Security</h3>
 
 <h2 id="012---2026-10-15">
 <a href="https://github.com/galtzo-floss/runtime_groups/compare/v0.1.1...v0.1.2">0.1.2</a> - 2026-10-15</h2>
@@ -197,7 +210,7 @@ installing the main Gemfile bundle.</p>
   </li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>kettle-jem-template-20260720-003 - StructuredMerge Git diff driver config now<br>
