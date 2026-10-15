@@ -20,6 +20,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Grouping runtime weights accept unknown_runtime: explicit weight for files missing from the runtime log, instead of the default (average of known runtimes, or 1.0 when nothing is known); parity with parallel_tests' --unknown-runtime, consumed by turbo_tests2's --unknown-runtime flag
+
 ### Changed
 
 ### Deprecated

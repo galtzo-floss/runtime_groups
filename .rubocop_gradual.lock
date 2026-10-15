@@ -1,8 +1,8 @@
 {
-  "spec/runtime_groups/grouping_spec.rb:3713871942": [
-    [84, 32, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
-    [85, 40, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
-    [96, 43, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885]
+  "spec/runtime_groups/grouping_spec.rb:109463275": [
+    [100, 32, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
+    [101, 40, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
+    [112, 43, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885]
   ],
   "spec/runtime_groups/options_spec.rb:1689878929": [
     [7, 5, 18, "ThreadSafety/DirChdir: Avoid using `Dir.chdir` due to its process-wide effect.", 3416111016]

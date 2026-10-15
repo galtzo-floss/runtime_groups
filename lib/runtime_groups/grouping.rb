@@ -25,17 +25,20 @@ module RuntimeGroups
     # @param runtime_log [String, nil] runtime log path (for :runtime)
     # @param allowed_missing [Float] fraction of files allowed to be missing
     #   from the runtime log before {RuntimeLogTooSmallError} is raised
+    # @param unknown_runtime [Float, nil] weight for files missing from the
+    #   runtime log; nil (default) uses the average of the known runtimes,
+    #   or 1.0 when nothing is known
     # @return [Hash{String => Float}] file => weight
     # @raise [RuntimeGroups::RuntimeLogTooSmallError] when too many files are
     #   missing from the runtime log
-    def with_size(files, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0)
+    def with_size(files, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0, unknown_runtime: nil)
       case group_by
       when :found
         files.each_with_object({}) { |file, memo| memo[file] = 1.0 }
       when :filesize
         files.each_with_object({}) { |file, memo| memo[file] = File.stat(file).size.to_f }
       when :runtime
-        runtime_weights(files, runtime_log, allowed_missing)
+        runtime_weights(files, runtime_log, allowed_missing, unknown_runtime)
       else
         raise Error, "invalid group-by mode #{group_by.inspect}; expected one of: runtime, filesize, found"
       end
@@ -50,11 +53,19 @@ module RuntimeGroups
     # @param runtime_log [String, nil] runtime log path (for :runtime)
     # @param allowed_missing [Float] fraction of files allowed to be missing
     #   from the runtime log
+    # @param unknown_runtime [Float, nil] weight for files missing from the
+    #   runtime log (nil = average of known, or 1.0 when nothing is known)
     # @return [Array<Array<String>>] exactly `num_groups` arrays of file paths
     # @raise [RuntimeGroups::Error] when num_groups or group_by is invalid
-    def in_groups(files, num_groups, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0)
+    def in_groups(files, num_groups, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0, unknown_runtime: nil)
       groups = Array.new(RuntimeGroups.parse_count!(num_groups)) { {weight: 0.0, files: []} }
-      weights = with_size(files, group_by: group_by, runtime_log: runtime_log, allowed_missing: allowed_missing)
+      weights = with_size(
+        files,
+        group_by: group_by,
+        runtime_log: runtime_log,
+        allowed_missing: allowed_missing,
+        unknown_runtime: unknown_runtime
+      )
 
       files.sort_by { |file| [-weights[file], file] }.each do |file|
         target = groups.min_by { |group| group[:weight] }
@@ -65,11 +76,11 @@ module RuntimeGroups
       groups.map { |group| group[:files] }
     end
 
-    # Runtime weights with the missing-file budget and average-fill semantics
+    # Runtime weights with the missing-file budget and fill semantics
     # retained from `parallel_tests`.
     #
     # @return [Hash{String => Float}]
-    def runtime_weights(files, runtime_log, allowed_missing)
+    def runtime_weights(files, runtime_log, allowed_missing, unknown_runtime = nil)
       budget = files.size * allowed_missing
       runtimes = RuntimeLog.read(runtime_log)
       known, unknown = [], []
@@ -88,7 +99,8 @@ module RuntimeGroups
       end
 
       weights = known.each_with_object({}) { |(file, seconds), memo| memo[file] = seconds }
-      fill = known.empty? ? 1.0 : known.map(&:last).sum / known.size
+      fill = unknown_runtime ||
+        (known.empty? ? 1.0 : known.map(&:last).sum / known.size)
       unknown.each { |file| weights[file] = fill }
       weights
     end

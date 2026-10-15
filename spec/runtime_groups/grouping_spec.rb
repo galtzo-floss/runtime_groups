@@ -45,6 +45,22 @@ RSpec.describe RuntimeGroups::Grouping do
         expect(described_class.with_size([known, unknown], runtime_log: log_path)).to eql(known => 2.0, unknown => 2.0)
       end
 
+      it "honors an explicit unknown_runtime over the average" do
+        known = make_file("known_spec.rb", 1)
+        unknown = make_file("unknown_spec.rb", 1)
+        File.write(log_path, "#{known}:2.0\n")
+        expect(
+          described_class.with_size([known, unknown], runtime_log: log_path, unknown_runtime: 7.5)
+        ).to eql(known => 2.0, unknown => 7.5)
+      end
+
+      it "honors unknown_runtime when nothing is known" do
+        file = make_file("blind_spec.rb", 1)
+        expect(
+          described_class.with_size([file], runtime_log: File.join(tmp_dir, "nope.log"), unknown_runtime: 3.0)
+        ).to eql(file => 3.0)
+      end
+
       it "fills every file with 1.0 when the log knows nothing" do
         file = make_file("blind_spec.rb", 1)
         expect(described_class.with_size([file], runtime_log: File.join(tmp_dir, "nope.log"))).to eql(file => 1.0)
