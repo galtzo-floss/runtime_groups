@@ -82,6 +82,10 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="fixed">Fixed</h3>
 
+<ul>
+  <li>Pids#to_a tolerates the ledger file vanishing between the existence guard and the read (TOCTOU with concurrent PidFile teardown during worker untracking, seen on truffleruby as Errno::ENOENT mid-suite); returns an empty ledger instead</li>
+</ul>
+
 <h3 id="security">Security</h3>
 
 <h2 id="012---2026-10-15">

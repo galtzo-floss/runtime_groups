@@ -28,9 +28,18 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Pids#to_a tolerates the ledger file vanishing between the existence guard and the read (TOCTOU with concurrent PidFile teardown during worker untracking, seen on truffleruby as Errno::ENOENT mid-suite); returns an empty ledger instead
-
 ### Security
+
+## [0.1.3] - 2026-10-15
+
+- TAG: [v0.1.3][0.1.3t]
+- COVERAGE: 99.22% -- 127/128 lines in 6 files
+- BRANCH COVERAGE: 96.88% -- 31/32 branches in 6 files
+- 93.55% documented
+
+### Fixed
+
+- Pids#to_a tolerates the ledger file vanishing between the existence guard and the read (TOCTOU with concurrent PidFile teardown during worker untracking, seen on truffleruby as Errno::ENOENT mid-suite); returns an empty ledger instead
 
 ## [0.1.2] - 2026-10-15
 
@@ -153,7 +162,9 @@ Please file a bug if you notice a violation of semantic versioning.
   legacy manual bundle install path, avoiding setup-time Bundler full-index
   failures against `gem.coop`.
 
-[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.2...v0.1.3
+[0.1.3t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.3
 [0.1.2]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.1...v0.1.2
 [0.1.2t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.2
 [0.1.1]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.0...v0.1.1
