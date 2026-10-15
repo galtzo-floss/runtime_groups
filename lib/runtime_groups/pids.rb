@@ -24,9 +24,11 @@ module RuntimeGroups
       return [] unless File.file?(@path)
 
       File.readlines(@path).map do |line|
-        Integer(line.strip, 10)
-      rescue ArgumentError
-        nil
+        begin
+          Integer(line.strip, 10)
+        rescue ArgumentError
+          nil
+        end
       end.compact.uniq.sort
     end
 

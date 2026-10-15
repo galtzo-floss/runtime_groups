@@ -23,9 +23,11 @@ module RuntimeGroups
         file, seconds = line.strip.split(":", 2)
         next if file.nil? || file.empty? || seconds.nil? || seconds.empty?
 
-        memo[file] = Float(seconds)
-      rescue ArgumentError
-        next
+        begin
+          memo[file] = Float(seconds)
+        rescue ArgumentError
+          next
+        end
       end
     end
 
