@@ -288,17 +288,17 @@ configuration keeps working when a runner switches to this gem.</p>
       <pre class="lines">
 
 
-52
 53
 54
 55
 56
 57
 58
-59</pre>
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/runtime_groups.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/runtime_groups.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse_count!'>parse_count!</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>:</span> <span class='const'>Integer</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span>
@@ -436,17 +436,17 @@ a positive integer</p>
       <pre class="lines">
 
 
-38
 39
 40
 41
 42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/runtime_groups.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/runtime_groups.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process_count'>process_count</span><span class='lparen'>(</span><span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>env:</span> <span class='const'>ENV</span><span class='comma'>,</span> <span class='label'>env_key:</span> <span class='const'><span class='object_link'><a href="#DEFAULT_PROC_COUNT_ENV-constant" title="RuntimeGroups::DEFAULT_PROC_COUNT_ENV (constant)">DEFAULT_PROC_COUNT_ENV</a></span></span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_parse_count!'>parse_count!</span><span class='lparen'>(</span><span class='id identifier rubyid_count'>count</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>

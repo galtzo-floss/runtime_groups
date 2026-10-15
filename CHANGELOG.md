@@ -22,14 +22,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- [kc] kettle-jem/prepare: updated 4 project files:
-  - dependencies (4)
-
-- [kc] kettle-jem/template: updated 5 project files:
-  - code and tests (2)
-  - documentation (1)
-  - other (2)
-
 ### Deprecated
 
 ### Removed
@@ -37,6 +29,23 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [0.1.1] - 2026-10-15
+
+- TAG: [v0.1.1][0.1.1t]
+- COVERAGE: 99.20% -- 124/125 lines in 6 files
+- BRANCH COVERAGE: 96.88% -- 31/32 branches in 6 files
+- 93.55% documented
+
+### Changed
+
+- [kc] kettle-jem/prepare: updated 4 project files:
+  - dependencies (4)
+
+- [kc] kettle-jem/template: updated 5 project files:
+  - code and tests (2)
+  - documentation (1)
+  - other (2)
 
 ## [0.1.0] - 2026-10-15
 
@@ -131,6 +140,8 @@ Please file a bug if you notice a violation of semantic versioning.
   legacy manual bundle install path, avoiding setup-time Bundler full-index
   failures against `gem.coop`.
 
-[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.0...v0.1.1
+[0.1.1t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.1
 [0.1.0]: https://github.com/galtzo-floss/runtime_groups/compare/e8764d41152b587dbc972e0abe97098794232b36...v0.1.0
 [0.1.0t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.0
