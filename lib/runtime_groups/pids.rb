@@ -19,11 +19,19 @@ module RuntimeGroups
     end
 
     # @return [Array<Integer>] the pids currently recorded, deduplicated and
-    #   sorted ascending; empty when the file does not exist yet
+    #   sorted ascending; empty when the file does not exist (or vanishes
+    #   mid-read — a ledger owned by {PidFile.with} is deleted concurrently
+    #   with worker teardown, so the entry guard cannot close that window)
     def to_a
       return [] unless File.file?(@path)
 
-      File.readlines(@path).map do |line|
+      begin
+        lines = File.readlines(@path)
+      rescue Errno::ENOENT
+        return []
+      end
+
+      lines.map do |line|
         begin
           Integer(line.strip, 10)
         rescue ArgumentError

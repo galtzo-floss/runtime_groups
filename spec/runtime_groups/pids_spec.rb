@@ -20,6 +20,13 @@ RSpec.describe RuntimeGroups::Pids do
       File.write(path, "10\nbogus\n\n20\n")
       expect(described_class.new(path).to_a).to eql([10, 20])
     end
+
+    it "returns empty when the file vanishes between the guard and the read" do
+      pids = described_class.new(path)
+      allow(File).to receive(:file?).with(path).and_return(true)
+      allow(File).to receive(:readlines).with(path).and_raise(Errno::ENOENT)
+      expect(pids.to_a).to be_empty
+    end
   end
 
   describe "#add" do

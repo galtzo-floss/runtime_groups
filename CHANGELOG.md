@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Pids#to_a tolerates the ledger file vanishing between the existence guard and the read (TOCTOU with concurrent PidFile teardown during worker untracking, seen on truffleruby as Errno::ENOENT mid-suite); returns an empty ledger instead
+
 ### Security
 
 ## [0.1.2] - 2026-10-15
