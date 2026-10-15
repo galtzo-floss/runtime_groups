@@ -11,6 +11,7 @@ template_state:
     - ".simplecov"
     - CODE_OF_CONDUCT.md
     - README.md
+    - bin/setup
     - lib/runtime_groups.rb
     kettle-jem/prepare:
     - Gemfile
@@ -661,7 +662,7 @@ files:
   CHANGELOG.md:
     recipe: template_source_application_CHANGELOG_md
     action: write
-    dest_sha256: e9118b3f90bc4e08f826862ec7a03da1f247cdb1d32af219cb0652fb5b736850
+    dest_sha256: b4b1286d62697f50648de2647ae4ac1a89b886d1c0025bd1ebfd05f2c1497ef8
     input_fingerprint: 1a35ce2270815be87ef485d2f9ec2b359c25c5014983137c570c98e1a16eed90
     template_sources:
     - CHANGELOG.md.example
@@ -759,8 +760,8 @@ files:
   bin/setup:
     recipe: template_source_application_bin_setup
     action: write
-    dest_sha256: e201190bc24e9f00849b3efa5fbaece2cbf069703232e50c7fa15d41c47f2ead
-    input_fingerprint: 5515d76e23e8214253aec456501f843a48c779c13e9d344ceadd587a74a6711e
+    dest_sha256: 0ac35089c95a91d8973fe7a318bf9fd98b9f8e00db92c5d9ca6cd858abb8d41b
+    input_fingerprint: '069a69c072e2716a8cc1aafcd4f1150cb7a0a717483a8860aaf9926a17500bc7'
     template_sources:
     - bin/setup.example
   bin/turbo_tests2:
