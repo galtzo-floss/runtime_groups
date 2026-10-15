@@ -20,8 +20,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- Grouping runtime weights accept unknown_runtime: explicit weight for files missing from the runtime log, instead of the default (average of known runtimes, or 1.0 when nothing is known); parity with parallel_tests' --unknown-runtime, consumed by turbo_tests2's --unknown-runtime flag
-
 ### Changed
 
 ### Deprecated
@@ -31,6 +29,17 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [0.1.2] - 2026-10-15
+
+- TAG: [v0.1.2][0.1.2t]
+- COVERAGE: 99.21% -- 125/126 lines in 6 files
+- BRANCH COVERAGE: 96.88% -- 31/32 branches in 6 files
+- 93.55% documented
+
+### Added
+
+- Grouping runtime weights accept unknown_runtime: explicit weight for files missing from the runtime log, instead of the default (average of known runtimes, or 1.0 when nothing is known); parity with parallel_tests' --unknown-runtime, consumed by turbo_tests2's --unknown-runtime flag
 
 ## [0.1.1] - 2026-10-15
 
@@ -142,7 +151,9 @@ Please file a bug if you notice a violation of semantic versioning.
   legacy manual bundle install path, avoiding setup-time Bundler full-index
   failures against `gem.coop`.
 
-[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.1...v0.1.2
+[0.1.2t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.2
 [0.1.1]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.0...v0.1.1
 [0.1.1t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.1
 [0.1.0]: https://github.com/galtzo-floss/runtime_groups/compare/e8764d41152b587dbc972e0abe97098794232b36...v0.1.0
