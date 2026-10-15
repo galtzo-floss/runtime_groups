@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: RuntimeGroups
+  
+    &mdash; Documentation by YARD 0.9.45
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "RuntimeGroups";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo;
+    
+    
+    <span class="title">RuntimeGroups</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: RuntimeGroups
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/runtime_groups.rb<span class="defines">,<br>
+  lib/runtime_groups/pids.rb,<br> lib/runtime_groups/options.rb,<br> lib/runtime_groups/version.rb,<br> lib/runtime_groups/grouping.rb,<br> lib/runtime_groups/runtime_log.rb</span>
+
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RuntimeGroups/Grouping.html" title="RuntimeGroups::Grouping (module)">Grouping</a></span>, <span class='object_link'><a href="RuntimeGroups/Options.html" title="RuntimeGroups::Options (module)">Options</a></span>, <span class='object_link'><a href="RuntimeGroups/PidFile.html" title="RuntimeGroups::PidFile (module)">PidFile</a></span>, <span class='object_link'><a href="RuntimeGroups/Version.html" title="RuntimeGroups::Version (module)">Version</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RuntimeGroups/Error.html" title="RuntimeGroups::Error (class)">Error</a></span>, <span class='object_link'><a href="RuntimeGroups/Pids.html" title="RuntimeGroups::Pids (class)">Pids</a></span>, <span class='object_link'><a href="RuntimeGroups/RuntimeLog.html" title="RuntimeGroups::RuntimeLog (class)">RuntimeLog</a></span>, <span class='object_link'><a href="RuntimeGroups/RuntimeLogTooSmallError.html" title="RuntimeGroups::RuntimeLogTooSmallError (class)">RuntimeLogTooSmallError</a></span>
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="DEFAULT_PROC_COUNT_ENV-constant" class="">DEFAULT_PROC_COUNT_ENV =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Environment variable checked for a default worker process count, kept<br />
+identical to the <code>parallel_tests</code> convention so an existing CI<br />
+configuration keeps working when a runner switches to this gem.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PARALLEL_TEST_PROCESSORS</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Current gem version exposed at the traditional constant location.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="RuntimeGroups/Version.html" title="RuntimeGroups::Version (module)">Version</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RuntimeGroups/Version.html#VERSION-constant" title="RuntimeGroups::Version::VERSION (constant)">VERSION</a></span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_count!-class_method" title="parse_count! (class method)">.<strong>parse_count!</strong>(value)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Parse and validate a worker count value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#process_count-class_method" title="process_count (class method)">.<strong>process_count</strong>(count = nil, env: ENV, env_key: DEFAULT_PROC_COUNT_ENV)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Resolve the worker process count for a parallel run.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="parse_count!-class_method">
+  
+    .<strong>parse_count!</strong>(value)  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Parse and validate a worker count value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>positive worker count</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="RuntimeGroups/Error.html" title="RuntimeGroups::Error (class)">RuntimeGroups::Error</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>when the value is not a positive integer</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/runtime_groups.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_parse_count!'>parse_count!</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>:</span> <span class='const'>Integer</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_count'>count</span> <span class='kw'>if</span> <span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_positive?'>positive?</span>
+
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="RuntimeGroups/Error.html" title="RuntimeGroups::Error (class)">Error</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid worker count </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>; expected a positive integer</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>rescue</span> <span class='const'>ArgumentError</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="RuntimeGroups/Error.html" title="RuntimeGroups::Error (class)">Error</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid worker count </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>; expected a positive integer</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="process_count-class_method">
+  
+    .<strong>process_count</strong>(count = nil, env: ENV, env_key: DEFAULT_PROC_COUNT_ENV)  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Resolve the worker process count for a parallel run.</p>
+
+<p>Resolution order:</p>
+<ol>
+  <li>An explicit <code>count</code> argument (must be a positive Integer, or a String<br />
+parseable as one).</li>
+  <li><code>ENV[env_key]</code> (defaults to “PARALLEL_TEST_PROCESSORS”); blank values<br />
+are ignored.</li>
+  <li><code>Etc.nprocessors</code> — the machine’s core count. Works on every engine<br />
+(MRI, JRuby, TruffleRuby): JRuby reports the JVM’s available<br />
+processors.</li>
+</ol>
+
+<p>The caller is responsible for resource budgeting: on JVM engines each<br />
+worker is a full JVM whose default heap can be 1/4 of machine RAM, so<br />
+the core-count default can exhaust a constrained runner. Cap it<br />
+explicitly there (see turbo_tests2’s resource-constrained CI docs).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>count</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>, <tt>String</tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>env</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>ENV</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>environment mapping (defaults to ENV)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>env_key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>DEFAULT_PROC_COUNT_ENV</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>positive worker count</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="RuntimeGroups/Error.html" title="RuntimeGroups::Error (class)">RuntimeGroups::Error</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>when an explicit count or env value is not<br />
+a positive integer</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/runtime_groups.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_process_count'>process_count</span><span class='lparen'>(</span><span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>env:</span> <span class='const'>ENV</span><span class='comma'>,</span> <span class='label'>env_key:</span> <span class='const'><span class='object_link'><a href="#DEFAULT_PROC_COUNT_ENV-constant" title="RuntimeGroups::DEFAULT_PROC_COUNT_ENV (constant)">DEFAULT_PROC_COUNT_ENV</a></span></span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_parse_count!'>parse_count!</span><span class='lparen'>(</span><span class='id identifier rubyid_count'>count</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_from_env'>from_env</span> <span class='op'>=</span> <span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='id identifier rubyid_env_key'>env_key</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_parse_count!'>parse_count!</span><span class='lparen'>(</span><span class='id identifier rubyid_from_env'>from_env</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_from_env'>from_env</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_from_env'>from_env</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='const'>Etc</span><span class='period'>.</span><span class='id identifier rubyid_nprocessors'>nprocessors</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Oct 15 00:19:39 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.45 (ruby-4.0.7).
+</div>
+
+    </div>
+  </body>
+</html>

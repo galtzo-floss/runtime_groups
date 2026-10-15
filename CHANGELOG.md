@@ -20,6 +20,26 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.0] - 2026-10-15
+
+- TAG: [v0.1.0][0.1.0t]
+- COVERAGE: 99.19% -- 123/124 lines in 6 files
+- BRANCH COVERAGE: 96.88% -- 31/32 branches in 6 files
+- 93.55% documented
+- Initial release
+
+### Added
+
 - kettle-jem-template-20260720-005 - README Support & Community links now
   include RubyForum.
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
@@ -59,10 +79,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (3)
   - other (42)
   - workflows (33)
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -107,8 +123,6 @@ Please file a bug if you notice a violation of semantic versioning.
   legacy manual bundle install path, avoiding setup-time Bundler full-index
   failures against `gem.coop`.
 
-### Security
-
-## [0.1.0] - 2026-10-14
-
-- Initial release
+[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/galtzo-floss/runtime_groups/compare/e8764d41152b587dbc972e0abe97098794232b36...v0.1.0
+[0.1.0t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.0

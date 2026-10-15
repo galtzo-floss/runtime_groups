@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: RuntimeGroups::Grouping
+  
+    &mdash; Documentation by YARD 0.9.45
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "RuntimeGroups::Grouping";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (G)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RuntimeGroups.html" title="RuntimeGroups (module)">RuntimeGroups</a></span></span>
+     &raquo; 
+    <span class="title">Grouping</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: RuntimeGroups::Grouping
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/runtime_groups/grouping.rb
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Balanced grouping of test files into worker groups.</p>
+
+<p>Mirrors the semantics of <code>parallel_tests</code> 3.5.2 through 5.8.0 (identical<br />
+across those versions for this surface): weights come from a {RuntimeLog}<br />
+when present, files missing from the log get the average of the known<br />
+runtimes (or 1.0 when nothing is known) once the <code>allowed_missing</code> budget<br />
+permits, and groups are balanced largest-smallest — every file, in<br />
+descending weight order, goes to the group with the smallest accumulated<br />
+weight. Tie-breaking by filename makes the split deterministic<br />
+(<code>parallel_tests</code> tie order is unspecified).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#in_groups-class_method" title="in_groups (class method)">.<strong>in_groups</strong>(files, num_groups, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0)  &#x21d2; Array&lt;Array&lt;String&gt;&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Split files into balanced groups.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#runtime_weights-class_method" title="runtime_weights (class method)">.<strong>runtime_weights</strong>(files, runtime_log, allowed_missing)  &#x21d2; Hash{String =&gt; Float} </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Runtime weights with the missing-file budget and average-fill semantics retained from <code>parallel_tests</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#with_size-class_method" title="with_size (class method)">.<strong>with_size</strong>(files, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0)  &#x21d2; Hash{String =&gt; Float} </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Compute a weight for every file.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="in_groups-class_method">
+  
+    .<strong>in_groups</strong>(files, num_groups, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0)  &#x21d2; <tt>Array&lt;Array&lt;String&gt;&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Split files into balanced groups.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>files</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>test file paths</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>num_groups</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>positive group count; groups may be empty<br />
+when there are fewer files than groups</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group_by</span>
+      
+      
+        <span class='type'>(<tt>:runtime</tt>, <tt>:filesize</tt>, <tt>:found</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:runtime</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>weighting mode</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>runtime_log</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>runtime log path (for :runtime)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>allowed_missing</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>fraction of files allowed to be missing<br />
+from the runtime log</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array&lt;String&gt;&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>exactly <code>num_groups</code> arrays of file paths</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Error.html" title="RuntimeGroups::Error (class)">RuntimeGroups::Error</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>when num_groups or group_by is invalid</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/runtime_groups/grouping.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_in_groups'>in_groups</span><span class='lparen'>(</span><span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_num_groups'>num_groups</span><span class='comma'>,</span> <span class='label'>group_by:</span> <span class='symbol'>:runtime</span><span class='comma'>,</span> <span class='label'>runtime_log:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>allowed_missing:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_groups'>groups</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../RuntimeGroups.html" title="RuntimeGroups (module)">RuntimeGroups</a></span></span><span class='period'>.</span><span class='id identifier rubyid_parse_count!'><span class='object_link'><a href="../RuntimeGroups.html#parse_count!-class_method" title="RuntimeGroups.parse_count! (method)">parse_count!</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_num_groups'>num_groups</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbrace'>{</span> <span class='label'>weight:</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='label'>files:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_weights'>weights</span> <span class='op'>=</span> <span class='id identifier rubyid_with_size'>with_size</span><span class='lparen'>(</span><span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='label'>group_by:</span> <span class='id identifier rubyid_group_by'>group_by</span><span class='comma'>,</span> <span class='label'>runtime_log:</span> <span class='id identifier rubyid_runtime_log'>runtime_log</span><span class='comma'>,</span> <span class='label'>allowed_missing:</span> <span class='id identifier rubyid_allowed_missing'>allowed_missing</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='op'>-</span><span class='id identifier rubyid_weights'>weights</span><span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='id identifier rubyid_target'>target</span> <span class='op'>=</span> <span class='id identifier rubyid_groups'>groups</span><span class='period'>.</span><span class='id identifier rubyid_min_by'>min_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_group'>group</span><span class='op'>|</span> <span class='id identifier rubyid_group'>group</span><span class='lbracket'>[</span><span class='symbol'>:weight</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_target'>target</span><span class='lbracket'>[</span><span class='symbol'>:weight</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='id identifier rubyid_weights'>weights</span><span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_target'>target</span><span class='lbracket'>[</span><span class='symbol'>:files</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_file'>file</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_groups'>groups</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_group'>group</span><span class='op'>|</span> <span class='id identifier rubyid_group'>group</span><span class='lbracket'>[</span><span class='symbol'>:files</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="runtime_weights-class_method">
+  
+    .<strong>runtime_weights</strong>(files, runtime_log, allowed_missing)  &#x21d2; <tt>Hash{String =&gt; Float}</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Runtime weights with the missing-file budget and average-fill semantics<br />
+retained from <code>parallel_tests</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash{String =&gt; Float}</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/runtime_groups/grouping.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_runtime_weights'>runtime_weights</span><span class='lparen'>(</span><span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_runtime_log'>runtime_log</span><span class='comma'>,</span> <span class='id identifier rubyid_allowed_missing'>allowed_missing</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_budget'>budget</span> <span class='op'>=</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>*</span> <span class='id identifier rubyid_allowed_missing'>allowed_missing</span>
+  <span class='id identifier rubyid_runtimes'>runtimes</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="RuntimeLog.html" title="RuntimeGroups::RuntimeLog (class)">RuntimeLog</a></span></span><span class='period'>.</span><span class='id identifier rubyid_read'><span class='object_link'><a href="RuntimeLog.html#read-class_method" title="RuntimeGroups::RuntimeLog.read (method)">read</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_runtime_log'>runtime_log</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_known'>known</span><span class='comma'>,</span> <span class='id identifier rubyid_unknown'>unknown</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_runtimes'>runtimes</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_known'>known</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='id identifier rubyid_runtimes'>runtimes</span><span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_budget'>budget</span> <span class='op'>-=</span> <span class='int'>1</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_budget'>budget</span><span class='period'>.</span><span class='id identifier rubyid_negative?'>negative?</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="RuntimeLogTooSmallError.html" title="RuntimeGroups::RuntimeLogTooSmallError (class)">RuntimeLogTooSmallError</a></span></span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Runtime log file &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_runtime_log'>runtime_log</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; does not contain sufficient data to sort </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='embexpr_end'>}</span><span class='tstring_content'> test files, please update or remove it.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_unknown'>unknown</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_file'>file</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_weights'>weights</span> <span class='op'>=</span> <span class='id identifier rubyid_known'>known</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='id identifier rubyid_seconds'>seconds</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_memo'>memo</span><span class='op'>|</span> <span class='id identifier rubyid_memo'>memo</span><span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_seconds'>seconds</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_fill'>fill</span> <span class='op'>=</span> <span class='id identifier rubyid_known'>known</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='float'>1.0</span> <span class='op'>:</span> <span class='id identifier rubyid_known'>known</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:last</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span> <span class='op'>/</span> <span class='id identifier rubyid_known'>known</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+  <span class='id identifier rubyid_unknown'>unknown</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span> <span class='id identifier rubyid_weights'>weights</span><span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_fill'>fill</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_weights'>weights</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="with_size-class_method">
+  
+    .<strong>with_size</strong>(files, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0)  &#x21d2; <tt>Hash{String =&gt; Float}</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Compute a weight for every file.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>files</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>test file paths</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group_by</span>
+      
+      
+        <span class='type'>(<tt>:runtime</tt>, <tt>:filesize</tt>, <tt>:found</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>:runtime</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>runtime_log</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>runtime log path (for :runtime)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>allowed_missing</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1.0</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>fraction of files allowed to be missing<br />
+from the runtime log before {RuntimeLogTooSmallError} is raised</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash{String =&gt; Float}</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>file =&gt; weight</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="RuntimeLogTooSmallError.html" title="RuntimeGroups::RuntimeLogTooSmallError (class)">RuntimeGroups::RuntimeLogTooSmallError</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>when too many files are<br />
+missing from the runtime log</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/runtime_groups/grouping.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_with_size'>with_size</span><span class='lparen'>(</span><span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='label'>group_by:</span> <span class='symbol'>:runtime</span><span class='comma'>,</span> <span class='label'>runtime_log:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>allowed_missing:</span> <span class='float'>1.0</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_group_by'>group_by</span>
+  <span class='kw'>when</span> <span class='symbol'>:found</span>
+    <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='id identifier rubyid_memo'>memo</span><span class='op'>|</span> <span class='id identifier rubyid_memo'>memo</span><span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='symbol'>:filesize</span>
+    <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='id identifier rubyid_memo'>memo</span><span class='op'>|</span> <span class='id identifier rubyid_memo'>memo</span><span class='lbracket'>[</span><span class='id identifier rubyid_file'>file</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_stat'>stat</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='rbrace'>}</span>
+  <span class='kw'>when</span> <span class='symbol'>:runtime</span>
+    <span class='id identifier rubyid_runtime_weights'>runtime_weights</span><span class='lparen'>(</span><span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_runtime_log'>runtime_log</span><span class='comma'>,</span> <span class='id identifier rubyid_allowed_missing'>allowed_missing</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="Error.html" title="RuntimeGroups::Error (class)">Error</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invalid group-by mode </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_by'>group_by</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>; expected one of: runtime, filesize, found</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Oct 15 00:19:39 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.45 (ruby-4.0.7).
+</div>
+
+    </div>
+  </body>
+</html>
