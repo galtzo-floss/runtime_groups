@@ -1,0 +1,65 @@
+{
+  "# If bundleAppraisalAttempt1 failed, clean lock/vendor and retry; Otherwise skip.\nif: ${{ !env.ACT && steps.bundleAppraisalAttempt1.outcome == 'failure' }}": [
+    {
+      "file": ".github/workflows/heads.yml",
+      "lines": [
+        79,
+        143
+      ]
+    }
+  ],
+  "- ruby: \"ruby\"\nappraisal: \"current\"": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        41,
+        47
+      ]
+    }
+  ],
+  "config: .licenserc.yaml\nmode: \"check\"": [
+    {
+      "file": ".github/workflows/license-eye.yml",
+      "lines": [
+        49,
+        62
+      ]
+    }
+  ],
+  "exec_cmd: \"kettle-test\"\nrubygems: latest": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        44,
+        50
+      ]
+    }
+  ],
+  "id: bundleAppraisalAttempt2\n# If bundleAppraisalAttempt1 failed, clean lock/vendor and retry; Otherwise skip.": [
+    {
+      "file": ".github/workflows/heads.yml",
+      "lines": [
+        78,
+        142
+      ]
+    }
+  ],
+  "rm -f gemfiles/${{ matrix.appraisal }}.gemfile.lock\nrm -rf vendor/bundle \"$HOME/.bundle/cache\"": [
+    {
+      "file": ".github/workflows/heads.yml",
+      "lines": [
+        82,
+        146
+      ]
+    }
+  ],
+  "rm -rf vendor/bundle \"$HOME/.bundle/cache\"\nbundle exec appraisal ${{ matrix.appraisal }} install": [
+    {
+      "file": ".github/workflows/heads.yml",
+      "lines": [
+        83,
+        147
+      ]
+    }
+  ]
+}
