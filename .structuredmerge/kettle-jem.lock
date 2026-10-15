@@ -9,6 +9,7 @@ template_state:
   maintenance_changelog:
     kettle-jem/template:
     - ".simplecov"
+    - CODE_OF_CONDUCT.md
     - README.md
     - lib/runtime_groups.rb
     kettle-jem/prepare:
@@ -674,7 +675,7 @@ files:
   CODE_OF_CONDUCT.md:
     recipe: template_source_application_CODE_OF_CONDUCT_md
     action: write
-    dest_sha256: 99c525f731ae04129c93e477160d308d88b4a1bb1124071750914acbd6d5952b
+    dest_sha256: f1ad532f1860f73ef774c6b27a26d41f4bc1cb8813034f5957487766ebb0986b
     input_fingerprint: af06c37ade118f2028d06abaf3267e4fedd7b7fa9e77ec73ef326818bd88ab77
     template_sources:
     - CODE_OF_CONDUCT.md.example
