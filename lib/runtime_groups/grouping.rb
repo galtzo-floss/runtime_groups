@@ -53,7 +53,7 @@ module RuntimeGroups
     # @return [Array<Array<String>>] exactly `num_groups` arrays of file paths
     # @raise [RuntimeGroups::Error] when num_groups or group_by is invalid
     def in_groups(files, num_groups, group_by: :runtime, runtime_log: nil, allowed_missing: 1.0)
-      groups = Array.new(RuntimeGroups.parse_count!(num_groups)) { { weight: 0.0, files: [] } }
+      groups = Array.new(RuntimeGroups.parse_count!(num_groups)) { {weight: 0.0, files: []} }
       weights = with_size(files, group_by: group_by, runtime_log: runtime_log, allowed_missing: allowed_missing)
 
       files.sort_by { |file| [-weights[file], file] }.each do |file|

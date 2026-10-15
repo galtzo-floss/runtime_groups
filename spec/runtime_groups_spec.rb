@@ -20,7 +20,7 @@ RSpec.describe RuntimeGroups do
   end
 
   it "resolves a count end-to-end with the default environment key" do
-    stub_const("ENV", { "PARALLEL_TEST_PROCESSORS" => "4" })
+    stub_const("ENV", {"PARALLEL_TEST_PROCESSORS" => "4"})
     expect(described_class.process_count).to eql(4)
   end
 end

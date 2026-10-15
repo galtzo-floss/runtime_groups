@@ -1,8 +1,4 @@
 {
-  "lib/runtime_groups/grouping.rb:3227964002": [
-    [56, 69, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside { detected.", 177541],
-    [56, 92, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside } detected.", 177541]
-  ],
   "spec/runtime_groups/grouping_spec.rb:3713871942": [
     [84, 32, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [85, 40, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
@@ -11,14 +7,10 @@
   "spec/runtime_groups/options_spec.rb:1689878929": [
     [7, 5, 18, "ThreadSafety/DirChdir: Avoid using `Dir.chdir` due to its process-wide effect.", 3416111016]
   ],
-  "spec/runtime_groups/pids_spec.rb:2055028252": [
-    [3, 1, 34, "RSpec/MultipleDescribes: Do not use multiple top-level example groups - try to nest them.", 302566383],
-    [11, 49, 7, "RSpec/Extra/BeEmpty: Use `be_empty` matchers for checking an empty array.", 4257930906],
-    [61, 34, 7, "RSpec/Extra/BeEmpty: Use `be_empty` matchers for checking an empty array.", 4257930906],
-    [69, 29, 7, "RSpec/Extra/BeEmpty: Use `be_empty` matchers for checking an empty array.", 4257930906],
-    [70, 49, 7, "RSpec/Extra/BeEmpty: Use `be_empty` matchers for checking an empty array.", 4257930906]
+  "spec/runtime_groups/pids_spec.rb:1985310972": [
+    [3, 1, 34, "RSpec/MultipleDescribes: Do not use multiple top-level example groups - try to nest them.", 302566383]
   ],
-  "spec/runtime_groups/process_count_spec.rb:2010682863": [
+  "spec/runtime_groups/process_count_spec.rb:3980570287": [
     [3, 1, 28, "RSpec/SpecFilePathFormat: Spec path should end with `runtime_groups*_spec.rb`.", 3375699777],
     [7, 16, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
     [7, 51, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
@@ -28,26 +20,16 @@
     [16, 18, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
     [20, 18, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
     [24, 16, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
-    [24, 53, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside { detected.", 177541],
-    [24, 87, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside } detected.", 177541],
-    [24, 95, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
+    [24, 93, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [30, 16, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
-    [30, 50, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside { detected.", 177541],
-    [30, 84, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside } detected.", 177541],
-    [30, 92, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
+    [30, 90, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [35, 16, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
-    [35, 50, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside { detected.", 177541],
-    [35, 85, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside } detected.", 177541],
-    [35, 93, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
+    [35, 91, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [40, 11, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
-    [40, 45, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside { detected.", 177541],
-    [40, 82, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside } detected.", 177541],
     [46, 16, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
     [46, 57, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [50, 16, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
-    [50, 50, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside { detected.", 177541],
-    [50, 70, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside } detected.", 177541],
-    [50, 101, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
+    [50, 99, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [57, 14, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485],
     [57, 48, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [61, 16, 13, "RSpec/DescribedClass: Use `described_class` instead of `RuntimeGroups`.", 1543878485]
@@ -57,9 +39,7 @@
     [40, 51, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [41, 51, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885]
   ],
-  "spec/runtime_groups_spec.rb:2929962554": [
-    [23, 24, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside { detected.", 177541],
-    [23, 58, 1, "Layout/SpaceInsideHashLiteralBraces: Space inside } detected.", 177541],
+  "spec/runtime_groups_spec.rb:2412398106": [
     [24, 46, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885]
   ]
 }

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "etc"
+require "version_gem"
 require_relative "runtime_groups/version"
 
 module RuntimeGroups

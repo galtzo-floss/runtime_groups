@@ -21,23 +21,23 @@ RSpec.describe RuntimeGroups do
       end
 
       it "takes precedence over the environment" do
-        expect(RuntimeGroups.process_count(2, env: { "PARALLEL_TEST_PROCESSORS" => "9" })).to eql(2)
+        expect(RuntimeGroups.process_count(2, env: {"PARALLEL_TEST_PROCESSORS" => "9"})).to eql(2)
       end
     end
 
     context "without an explicit count" do
       it "reads the environment variable" do
-        expect(RuntimeGroups.process_count(env: { "PARALLEL_TEST_PROCESSORS" => "5" })).to eql(5)
+        expect(RuntimeGroups.process_count(env: {"PARALLEL_TEST_PROCESSORS" => "5"})).to eql(5)
       end
 
       it "ignores a blank environment variable" do
         allow(Etc).to receive(:nprocessors).and_return(7)
-        expect(RuntimeGroups.process_count(env: { "PARALLEL_TEST_PROCESSORS" => "  " })).to eql(7)
+        expect(RuntimeGroups.process_count(env: {"PARALLEL_TEST_PROCESSORS" => "  "})).to eql(7)
       end
 
       it "rejects a non-numeric environment variable" do
         expect do
-          RuntimeGroups.process_count(env: { "PARALLEL_TEST_PROCESSORS" => "many" })
+          RuntimeGroups.process_count(env: {"PARALLEL_TEST_PROCESSORS" => "many"})
         end.to raise_error(RuntimeGroups::Error, /positive integer/)
       end
 
@@ -47,7 +47,7 @@ RSpec.describe RuntimeGroups do
       end
 
       it "honors a custom env key" do
-        expect(RuntimeGroups.process_count(env: { "MY_WORKERS" => "8" }, env_key: "MY_WORKERS")).to eql(8)
+        expect(RuntimeGroups.process_count(env: {"MY_WORKERS" => "8"}, env_key: "MY_WORKERS")).to eql(8)
       end
     end
   end

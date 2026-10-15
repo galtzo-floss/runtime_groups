@@ -8,7 +8,7 @@ RSpec.describe RuntimeGroups::Pids do
 
   describe "#to_a" do
     it "is empty when the file does not exist" do
-      expect(described_class.new(path).to_a).to eql([])
+      expect(described_class.new(path).to_a).to be_empty
     end
 
     it "reads recorded pids sorted and deduplicated" do
@@ -58,7 +58,7 @@ RSpec.describe RuntimeGroups::Pids do
 
     it "ignores unknown pids" do
       pids = described_class.new(path)
-      expect(pids.delete(99)).to eql([])
+      expect(pids.delete(99)).to be_empty
     end
   end
 
@@ -66,8 +66,8 @@ RSpec.describe RuntimeGroups::Pids do
     it "empties the ledger" do
       pids = described_class.new(path)
       pids.add(11)
-      expect(pids.clear).to eql([])
-      expect(described_class.new(path).to_a).to eql([])
+      expect(pids.clear).to be_empty
+      expect(described_class.new(path).to_a).to be_empty
     end
   end
 end

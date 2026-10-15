@@ -210,7 +210,6 @@ end            #    ledger is safe to share across processes
 RuntimeGroups::Options.spec_opts  # => "-O .rspec_parallel" or nil
 ```
 
-
 ## 🦷 FLOSS Funding
 
 While galtzo-floss tools are free software and will always be, the project would benefit immensely from some funding.
