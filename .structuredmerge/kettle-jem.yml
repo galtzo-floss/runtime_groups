@@ -463,7 +463,7 @@ yard_host: "runtime-groups.galtzo.com"
 # Full URL used for gemspec metadata["homepage_uri"].
 # Defaults to https://runtime-groups.galtzo.com.
 # ENV override: KJ_HOMEPAGE_URI
-homepage_uri: "TODO: Put your gem's website or public repo URL here."
+homepage_uri: "https://github.com/galtzo-floss/runtime_groups"
 
 # Template source inventory.
 # The packaged inventory is the canonical kettle-jem project template. It
