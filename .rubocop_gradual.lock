@@ -1,4 +1,7 @@
 {
+  "gemfiles/modular/style_local.gemfile:4280938491": [
+    [71, 23, 20, "Style/SafeNavigation: Use safe navigation (`&.`) instead of checking if an object exists before calling the method.", 1851388465]
+  ],
   "spec/runtime_groups/grouping_spec.rb:109463275": [
     [100, 32, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
     [101, 40, 3, "RSpec/BeEql: Prefer `be` over `eql`.", 193405885],
