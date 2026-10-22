@@ -2,7 +2,7 @@
 version: 1
 template_state:
   version: 7.1.38
-  applied_at: '2026-10-21'
+  applied_at: '2026-10-22'
   changelog_replay:
     last_entry_key: kettle-jem-template-20260913-001
     last_entry_date: '2026-09-13'
@@ -17,6 +17,7 @@ template_state:
     - ".github/workflows/truffleruby-33.0.yml"
     - ".simplecov"
     - Gemfile
+    - README.md
     - gemfiles/modular/coverage_local.gemfile
     - gemfiles/modular/style_local.gemfile
     - gemfiles/modular/templating.gemfile
@@ -740,8 +741,8 @@ files:
   README.md:
     recipe: template_source_application_README_md
     action: write
-    dest_sha256: f75897b77b8ad35457a624f7980c0033303ca3ad813c27352026062bcf07bae5
-    input_fingerprint: 408fe429234a9b4cb4e76212f5e3108b3791a4cdf262f6bf22d66f580f950567
+    dest_sha256: 7853cee61bbcc7ea372ef7e0c7a1471ff800cf59974da1cb6a1313cc6c746d1e
+    input_fingerprint: a8421e1a712f14801222c1cfc839fc27672e4c3e6e9f0723ab9dc6cbb51cea8d
     template_sources:
     - README.md.example
   REEK:
@@ -1139,8 +1140,8 @@ files:
   runtime_groups.gemspec:
     recipe: template_source_application_runtime_groups_gemspec
     action: write
-    dest_sha256: 2d5e1d6bba8b067df6aef02a1dcba48bcdd63439ea9ea0d969939e714c705a34
-    input_fingerprint: 56f9ab7a613a137023970fe5162300f826a8e030abecbbc7706b7a66b3c15175
+    dest_sha256: a5dae1512cdaed80ead982213b28edd8246ceb8bc3e9dca561470102a1353cc4
+    input_fingerprint: 9924cf19bf14677411c8851091a53eb77bb88f52a17af2e1221f71165d153724
     template_sources:
     - gem.gemspec.example
   sig/runtime_groups.rbs:

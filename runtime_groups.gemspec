@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "🍲 Runtime-weighted test grouping and worker process primitives"
-  spec.description = "🍲 RuntimeGroups extracts the small parallel-runner primitives from turbo_tests2 — worker process count resolution, pid-file bookkeeping, runtime log recording, and runtime-weighted balanced file grouping — into a dependency-free gem that is engine-portable across MRI, JRuby, and TruffleRuby."
+  spec.summary = "🗂️ Runtime-weighted test grouping and worker process primitives"
+  spec.description = "🗂️ RuntimeGroups extracts the small parallel-runner primitives from turbo_tests2 — worker process count resolution, pid-file bookkeeping, runtime log recording, and runtime-weighted balanced file grouping — into a dependency-free gem that is engine-portable across MRI, JRuby, and TruffleRuby."
   spec.homepage = "https://github.com/galtzo-floss/runtime_groups"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 2.4.0"
@@ -62,7 +62,7 @@ Gem::Specification.new do |spec|
   gemspec_root = __dir__
   relative_package_path = lambda do |path|
     prefix = "#{gemspec_root}/"
-    (path[0, prefix.length] == prefix) ? path[prefix.length..-1] : path
+    path[0, prefix.length] == prefix ? path[prefix.length..-1] : path
   end
   enumerate_package_glob = lambda do |glob|
     files = []
