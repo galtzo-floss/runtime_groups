@@ -1,13 +1,4 @@
 {
-  "- [kc] kettle-jem/prepare: updated 4 project files:\n- dependencies (4)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        25,
-        90
-      ]
-    }
-  ],
   "- ruby: \"ruby\"\nappraisal: \"current\"": [
     {
       "file": ".github/workflows/current.yml",
