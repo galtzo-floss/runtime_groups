@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.5] - 2026-11-11
+
+- TAG: [v0.1.5][0.1.5t]
+- COVERAGE: 99.22% -- 127/128 lines in 6 files
+- BRANCH COVERAGE: 96.88% -- 31/32 branches in 6 files
+- 93.55% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 5 project files:
   - dependencies (5)
 
@@ -30,14 +47,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (1)
   - other (1)
   - workflows (7)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [0.1.4] - 2026-11-09
 
@@ -187,7 +196,9 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv
   lockfile parser failures on Git and path dependencies.
 
-[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.4...v0.1.5
+[0.1.5t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.5
 [0.1.4]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.3...v0.1.4
 [0.1.4t]: https://github.com/galtzo-floss/runtime_groups/releases/tag/v0.1.4
 [0.1.3]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.2...v0.1.3
