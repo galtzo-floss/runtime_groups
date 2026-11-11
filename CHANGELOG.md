@@ -25,8 +25,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - [kc] kettle-jem/prepare: updated 5 project files:
   - dependencies (5)
 
-- [kc] kettle-jem/template: updated 10 project files:
+- [kc] kettle-jem/template: updated 11 project files:
   - dependencies (2)
+  - documentation (1)
   - other (1)
   - workflows (7)
 
@@ -185,10 +186,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260728-004 - Generated dep-heads workflows now use the
   setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv
   lockfile parser failures on Git and path dependencies.
-
-- kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the
-  legacy manual bundle install path, avoiding setup-time Bundler full-index
-  failures against `gem.coop`.
 
 [Unreleased]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.4...HEAD
 [0.1.4]: https://github.com/galtzo-floss/runtime_groups/compare/v0.1.3...v0.1.4
